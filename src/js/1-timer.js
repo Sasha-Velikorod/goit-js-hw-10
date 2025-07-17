@@ -3,8 +3,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const startBtn = document.querySelector('.btn');
-// startBtn.disabled = true;
+const startBtn = document.querySelector('[data-start]');
+startBtn.disabled = true;
 
 const timer = {
   input: document.querySelector('#datetime-picker'),
@@ -27,6 +27,7 @@ const timer = {
         this.seconds.textContent = '00';
 
         this.input.disabled = false;
+        startBtn.disabled = true;
         return;
       }
 
@@ -59,10 +60,10 @@ const options = {
         position: 'topRight',
         icon: '',
       });
-      startBtn.classList.add('btn-disabled');
+      startBtn.disabled = true;
     } else {
       timer.userSelectedDate = selectedDate;
-      startBtn.classList.remove('btn-disabled');
+      startBtn.disabled = false;
     }
   },
 };
